@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A special birthday surprise made with love ❤️">
+    <title>Happy Birthday My Love ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Quicksand:wght@400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body { opacity: 0; transition: opacity 0.7s ease; }
+        body.loaded { opacity: 1; }
+    </style>
+</head>
+
+<body>
+    <!-- Rose Petals -->
+    <div class="petals-container" aria-hidden="true" id="petals"></div>
+
+    <!-- Custom cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Gold dust particles -->
+    <canvas id="goldCanvas"></canvas>
+
+    <div class="container">
+        <!-- Envelope icon -->
+        <div class="envelope-icon" aria-hidden="true">
+            <div class="env-flap"></div>
+            <div class="env-body">
+                <div class="env-heart">💌</div>
+            </div>
+        </div>
+
+        <h1 class="shimmer-title">Happy Birthday<br><span class="name-highlight">Nandani</span> 💗</h1>
+        <div class="greeting"></div>
+
+        <!-- Countdown -->
+        <div class="countdown-wrapper">
+            <div class="countdown-label">Your Special Day Arrives In</div>
+            <div class="countdown-grid">
+                <div class="count-block">
+                    <span class="count-num" id="cd-days">00</span>
+                    <span class="count-unit">Days</span>
+                </div>
+                <div class="count-sep">:</div>
+                <div class="count-block">
+                    <span class="count-num" id="cd-hours">00</span>
+                    <span class="count-unit">Hours</span>
+                </div>
+                <div class="count-sep">:</div>
+                <div class="count-block">
+                    <span class="count-num" id="cd-mins">00</span>
+                    <span class="count-unit">Mins</span>
+                </div>
+                <div class="count-sep">:</div>
+                <div class="count-block">
+                    <span class="count-num" id="cd-secs">00</span>
+                    <span class="count-unit">Secs</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="cta-button">
+            <span class="btn-text">Open Your Surprise 💕</span>
+            <span class="btn-shimmer"></span>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            document.body.classList.add("loaded");
+        });
+    </script>
+</body>
+</html>

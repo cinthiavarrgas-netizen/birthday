@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasons I Love You ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Quicksand:wght@400;500;600&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <link rel="stylesheet" href="./cause.css">
+
+    <style>
+        body { opacity: 0; transition: opacity 0.6s ease-in-out; }
+        body.loaded { opacity: 1; }
+    </style>
+</head>
+
+<body>
+    <!-- Custom cursor heart -->
+    <div class="custom-cursor">
+        <svg viewBox="0 0 24 24">
+            <path fill="#D4AF37"
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+    </div>
+
+    <div class="petals-bg" aria-hidden="true" id="cause-petals"></div>
+
+    <div class="container">
+        <h1>Happy Birthday Nandani 💖</h1>
+
+        <!-- Heart Progress Bar -->
+        <div class="progress-section">
+            <div class="progress-label">Reasons revealed</div>
+            <div class="heart-bar" id="heart-bar">
+                <span class="heart-pip" data-index="0">🤍</span>
+                <span class="heart-pip" data-index="1">🤍</span>
+                <span class="heart-pip" data-index="2">🤍</span>
+                <span class="heart-pip" data-index="3">🤍</span>
+            </div>
+        </div>
+
+        <div id="reasons-container"></div>
+
+        <button class="shuffle-button">
+            <span id="btn-label">Click Here... 💕</span>
+            <span class="btn-shimmer"></span>
+        </button>
+
+        <div class="ending-section">
+            <div class="teddy-hug">
+                <img src="./n1.jpg" alt="Special Memory" loading="lazy">
+            </div>
+            <div class="ending-text">You're My Forever 💍❤️</div>
+        </div>
+    </div>
+
+    <script src="cause.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            document.body.classList.add("loaded");
+            // Rose petals
+            const container = document.getElementById('cause-petals');
+            const emojis = ['🌹', '🌸', '🌺', '🌷'];
+            for (let i = 0; i < 12; i++) {
+                const p = document.createElement('div');
+                p.className = 'petal';
+                p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.animationDuration = (Math.random() * 8 + 7) + 's';
+                p.style.animationDelay = (Math.random() * 10) + 's';
+                p.style.fontSize = (Math.random() * 0.6 + 0.8) + 'rem';
+                container.appendChild(p);
+            }
+        });
+    </script>
+</body>
+</html>
