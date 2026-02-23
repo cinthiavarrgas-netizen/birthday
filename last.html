@@ -7,28 +7,34 @@
     <title>Our Beautiful Memories ✨</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Quicksand:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Quicksand:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
 
     <!-- Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
     <style>
         :root {
-            --burgundy:   #850B24;
-            --rose:       #C4455F;
-            --gold:       #D4AF37;
+            --burgundy: #850B24;
+            --rose: #C4455F;
+            --gold: #D4AF37;
             --gold-light: #F5E08A;
             --font-display: 'Cormorant Garamond', Georgia, serif;
-            --font-body:    'Quicksand', sans-serif;
-            --font-script:  'Dancing Script', cursive;
+            --font-body: 'Quicksand', sans-serif;
+            --font-script: 'Dancing Script', cursive;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             min-height: 100vh;
             background: linear-gradient(135deg,
-                #5a0718 0%, #850B24 25%, #a3163a 50%, #c4455f 75%, #850B24 100%);
+                    #5a0718 0%, #850B24 25%, #a3163a 50%, #c4455f 75%, #850B24 100%);
             background-size: 400% 400%;
             animation: gradientFlow 18s ease infinite;
             font-family: var(--font-body);
@@ -38,12 +44,22 @@
             transition: opacity 0.8s ease;
         }
 
-        body.loaded { opacity: 1; }
+        body.loaded {
+            opacity: 1;
+        }
 
         @keyframes gradientFlow {
-            0%   { background-position: 0% 50%; }
-            50%  { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* ========================
@@ -56,7 +72,9 @@
             z-index: 1;
             overflow: hidden;
         }
-        .magic-sparkles::before, .magic-sparkles::after {
+
+        .magic-sparkles::before,
+        .magic-sparkles::after {
             content: '';
             position: absolute;
             inset: 0;
@@ -65,15 +83,22 @@
             animation: sparkleLayer 12s linear infinite;
             opacity: 0.25;
         }
+
         .magic-sparkles::after {
-            background-image: radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px);
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.6) 1px, transparent 1px);
             background-size: 38px 38px;
             animation-delay: -6s;
             opacity: 0.15;
         }
+
         @keyframes sparkleLayer {
-            0%   { transform: translateY(0); }
-            100% { transform: translateY(-60px); }
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-60px);
+            }
         }
 
         /* ========================
@@ -86,6 +111,7 @@
             z-index: 2;
             overflow: hidden;
         }
+
         .heart {
             position: absolute;
             font-size: 1.4rem;
@@ -95,11 +121,25 @@
             bottom: -10%;
             opacity: 0;
         }
+
         @keyframes floatHeart {
-            0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-            10%  { opacity: 0.85; }
-            90%  { opacity: 0.7; }
-            100% { transform: translate(var(--tx, 0), -110vh) rotate(360deg); opacity: 0; }
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.85;
+            }
+
+            90% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translate(var(--tx, 0), -110vh) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         /* ========================
@@ -111,6 +151,7 @@
             position: relative;
             z-index: 5;
         }
+
         .welcome h1 {
             font-family: var(--font-display);
             font-size: 4.2rem;
@@ -125,6 +166,7 @@
             line-height: 1.15;
             letter-spacing: 0.02em;
         }
+
         .welcome-divider {
             display: flex;
             align-items: center;
@@ -132,12 +174,17 @@
             gap: 1rem;
             margin: 1.5rem 0;
         }
+
         .divider-line {
             width: 80px;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.7), transparent);
         }
-        .divider-gem { font-size: 1.2rem; }
+
+        .divider-gem {
+            font-size: 1.2rem;
+        }
+
         .welcome p {
             font-size: 1.2rem;
             max-width: 580px;
@@ -156,6 +203,7 @@
             transform: translateY(40px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
+
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
@@ -194,21 +242,29 @@
             background: #fff;
             padding: 1.2rem 1.2rem 3.5rem;
             box-shadow:
-                0 10px 35px rgba(0,0,0,0.25),
-                0 2px 8px rgba(0,0,0,0.12);
+                0 10px 35px rgba(0, 0, 0, 0.25),
+                0 2px 8px rgba(0, 0, 0, 0.12);
             position: relative;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             cursor: pointer;
         }
 
         /* Polaroid tilt effect: alternate cards tilt differently */
-        .memory-card:nth-child(1) { transform: rotate(-2.5deg); }
-        .memory-card:nth-child(2) { transform: rotate(1.8deg); }
-        .memory-card:nth-child(3) { transform: rotate(-1.5deg); }
+        .memory-card:nth-child(1) {
+            transform: rotate(-2.5deg);
+        }
+
+        .memory-card:nth-child(2) {
+            transform: rotate(1.8deg);
+        }
+
+        .memory-card:nth-child(3) {
+            transform: rotate(-1.5deg);
+        }
 
         .memory-card:hover {
             transform: rotate(0deg) translateY(-12px) scale(1.03) !important;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
             z-index: 10;
         }
 
@@ -266,7 +322,7 @@
         .lightbox {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.88);
+            background: rgba(0, 0, 0, 0.88);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -276,10 +332,12 @@
             transition: opacity 0.35s ease;
             padding: 1.5rem;
         }
+
         .lightbox.open {
             opacity: 1;
             pointer-events: all;
         }
+
         .lightbox-inner {
             background: white;
             padding: 1rem 1rem 2.5rem;
@@ -288,15 +346,20 @@
             position: relative;
             transform: scale(0.85);
             transition: transform 0.35s ease;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
         }
-        .lightbox.open .lightbox-inner { transform: scale(1); }
+
+        .lightbox.open .lightbox-inner {
+            transform: scale(1);
+        }
+
         .lightbox-img {
             width: 100%;
             max-height: 65vh;
             object-fit: cover;
             display: block;
         }
+
         .lightbox-caption {
             font-family: var(--font-script);
             color: var(--burgundy);
@@ -304,6 +367,7 @@
             text-align: center;
             margin-top: 0.8rem;
         }
+
         .lightbox-close {
             position: absolute;
             top: -18px;
@@ -319,10 +383,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
             transition: transform 0.2s ease;
         }
-        .lightbox-close:hover { transform: scale(1.15) rotate(90deg); }
+
+        .lightbox-close:hover {
+            transform: scale(1.15) rotate(90deg);
+        }
 
         /* ========================
            FINAL MESSAGE
@@ -334,6 +401,7 @@
             z-index: 5;
             position: relative;
         }
+
         .final-message h2 {
             font-family: var(--font-display);
             font-size: 3.2rem;
@@ -347,6 +415,7 @@
             background-clip: text;
             animation: shimmerMove 4s linear infinite, heartbeat 2.5s ease infinite;
         }
+
         .final-message p {
             max-width: 700px;
             margin: 0 auto 1.5rem;
@@ -401,25 +470,44 @@
         .surprise-btn::before {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
+            top: 0;
+            left: -100%;
             width: 60%;
             height: 100%;
-            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+            background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.15) 50%, transparent 60%);
             animation: shimmerSweep 2.5s ease-in-out infinite;
         }
 
         @keyframes shimmerSweep {
-            0%        { left: -100%; }
-            50%, 100% { left: 150%; }
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 150%;
+            }
         }
 
         @keyframes goldPulse {
-            0%, 100% { box-shadow: 0 5px 25px rgba(160, 92, 26, 0.5), 0 0 0 0 rgba(212, 175, 55, 0.4); }
-            50%       { box-shadow: 0 8px 35px rgba(160, 92, 26, 0.7), 0 0 0 14px rgba(212, 175, 55, 0); }
+
+            0%,
+            100% {
+                box-shadow: 0 5px 25px rgba(160, 92, 26, 0.5), 0 0 0 0 rgba(212, 175, 55, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 8px 35px rgba(160, 92, 26, 0.7), 0 0 0 14px rgba(212, 175, 55, 0);
+            }
         }
 
-        .surprise-btn:hover { transform: translateY(-4px); }
-        .surprise-btn:active { transform: scale(0.97); }
+        .surprise-btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .surprise-btn:active {
+            transform: scale(0.97);
+        }
 
         /* ========================
            RESORT REVEAL CARD
@@ -442,19 +530,28 @@
             position: relative;
             overflow: hidden;
             box-shadow:
-                0 20px 60px rgba(0,0,0,0.5),
+                0 20px 60px rgba(0, 0, 0, 0.5),
                 inset 0 1px 0 rgba(212, 175, 55, 0.3);
         }
 
         /* Ornamental border corners */
-        .resort-card::before, .resort-card::after {
+        .resort-card::before,
+        .resort-card::after {
             content: '✦';
             position: absolute;
             font-size: 1.5rem;
             color: rgba(212, 175, 55, 0.5);
         }
-        .resort-card::before { top: 1rem; left: 1.2rem; }
-        .resort-card::after  { bottom: 1rem; right: 1.2rem; }
+
+        .resort-card::before {
+            top: 1rem;
+            left: 1.2rem;
+        }
+
+        .resort-card::after {
+            bottom: 1rem;
+            right: 1.2rem;
+        }
 
         .resort-icon {
             font-size: 4rem;
@@ -491,10 +588,11 @@
             gap: 0.8rem;
             margin: 1.5rem 0;
         }
+
         .resort-divider-line {
             flex: 1;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
             max-width: 100px;
         }
 
@@ -551,6 +649,7 @@
             box-shadow: 0 5px 20px rgba(133, 11, 36, 0.45);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .goodbye-btn:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 28px rgba(133, 11, 36, 0.65);
@@ -560,31 +659,65 @@
            ANIMATIONS
         ======================== */
         @keyframes shimmerMove {
-            0%   { background-position: 0% center; }
-            100% { background-position: 200% center; }
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
         }
 
         @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50%       { transform: scale(1.06); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.06);
+            }
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50%       { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         /* ========================
            RESPONSIVE
         ======================== */
         @media (max-width: 768px) {
-            .welcome h1 { font-size: 2.5rem; }
-            .memory-container { grid-template-columns: 1fr; gap: 3rem; }
+            .welcome h1 {
+                font-size: 2.5rem;
+            }
+
+            .memory-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
             .memory-card:nth-child(1),
             .memory-card:nth-child(2),
-            .memory-card:nth-child(3) { transform: rotate(-1deg); }
-            .final-message h2 { font-size: 2.2rem; }
-            .resort-title { font-size: 2rem; }
+            .memory-card:nth-child(3) {
+                transform: rotate(-1deg);
+            }
+
+            .final-message h2 {
+                font-size: 2.2rem;
+            }
+
+            .resort-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -633,13 +766,15 @@
         <div class="memory-card reveal" data-img="IMG_5495.jpg" data-caption="Together Vibes">
             <img src="IMG_5495.jpg" alt="Memory 2" class="memory-img" loading="lazy">
             <div class="memory-date">Together Vibes</div>
-            <div class="memory-caption">May your journey ahead be filled with happiness, success, and endless smiles. 😊💕</div>
+            <div class="memory-caption">May your journey ahead be filled with happiness, success, and endless smiles.
+                😊💕</div>
         </div>
 
         <div class="memory-card reveal" data-img="IMG_8346.jpg" data-caption="Pretty Soul">
             <img src="IMG_8346.jpg" alt="Memory 3" class="memory-img" loading="lazy">
             <div class="memory-date">Pretty Soul</div>
-            <div class="memory-caption">Keep being the amazing person you are — you make every moment brighter. 🌸💖</div>
+            <div class="memory-caption">Keep being the amazing person you are — you make every moment brighter. 🌸💖
+            </div>
         </div>
     </div>
 
@@ -659,11 +794,11 @@
     </div>
 
     <!-- RESORT REVEAL -->
-    <div class="resort-reveal" id="resortReveal">
+    <!-- <div class="resort-reveal" id="resortReveal">
         <div class="resort-card">
             <div class="resort-icon">🏨</div>
             <p class="resort-eyebrow">Your Birthday Surprise</p>
-            <h2 class="resort-title">A Romantic One Night<br>Resort Getaway</h2>
+            <h2 class="resort-title">A One Night<br>Resort Getaway</h2>
 
             <div class="resort-divider">
                 <div class="resort-divider-line"></div>
@@ -691,7 +826,7 @@
         </div>
 
         <a href="index.html" class="goodbye-btn">Start Over from the Beginning 💝</a>
-    </div>
+    </div> -->
 
     <script>
         // ========================
@@ -724,17 +859,17 @@
         // ========================
         // Lightbox
         // ========================
-        const lightbox        = document.getElementById('lightbox');
-        const lightboxImg     = document.getElementById('lightbox-img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
         const lightboxCaption = document.getElementById('lightbox-caption');
-        const lightboxClose   = document.getElementById('lightbox-close');
+        const lightboxClose = document.getElementById('lightbox-close');
 
         document.querySelectorAll('.memory-card').forEach(card => {
             card.addEventListener('click', () => {
-                const img     = card.dataset.img;
+                const img = card.dataset.img;
                 const caption = card.dataset.caption;
-                lightboxImg.src        = img;
-                lightboxImg.alt        = caption;
+                lightboxImg.src = img;
+                lightboxImg.alt = caption;
                 lightboxCaption.textContent = caption;
                 lightbox.classList.add('open');
                 document.body.style.overflow = 'hidden';
@@ -757,7 +892,7 @@
         // ========================
         // Resort Surprise Reveal
         // ========================
-        const surpriseBtn  = document.getElementById('surpriseBtn');
+        const surpriseBtn = document.getElementById('surpriseBtn');
         const resortReveal = document.getElementById('resortReveal');
         let revealed = false;
 
@@ -810,8 +945,8 @@
             resortReveal.style.transform = 'translateY(40px)';
             setTimeout(() => {
                 resortReveal.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
-                resortReveal.style.opacity    = '1';
-                resortReveal.style.transform  = 'translateY(0)';
+                resortReveal.style.opacity = '1';
+                resortReveal.style.transform = 'translateY(0)';
             }, 100);
 
             // Change button text
@@ -822,4 +957,5 @@
         });
     </script>
 </body>
+
 </html>
