@@ -432,23 +432,23 @@ window.addEventListener("load", () => {
 const waitingMessages = [
   {
     emoji: "🙈",
-    text: "Patience, love! The surprise unlocks on your special day — Feb 26th! 🎂",
+    text: "Patience, love! The surprise unlocks on your special day Feb 26th 🎂",
   },
   {
     emoji: "🥺",
-    text: "Aww, not yet! Good things come to those who wait... just a little longer! 💕",
+    text: "Aww, not yet! Good things come to those who wait... just a little longer 💕",
   },
   {
     emoji: "🎁",
-    text: "The surprise is wrapped and waiting! Feb 26th is almost here! 🌸",
+    text: "The surprise is wrapped and waiting! Feb 26th is almost here 🌸",
   },
   {
     emoji: "😄",
-    text: "Someone's excited! Hold on tight — it's worth the wait, I promise! ✨",
+    text: "Someone's excited! Hold on tight it's worth the wait, I promise ✨",
   },
   {
     emoji: "💌",
-    text: "Soon, my love! Every second of waiting makes the surprise even sweeter! 🍰",
+    text: "Soon, my love! Every second of waiting makes the surprise even sweeter 🍰",
   },
 ];
 let waitMsgIndex = 0;
