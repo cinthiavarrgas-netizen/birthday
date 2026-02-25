@@ -105,35 +105,35 @@ if (cursor && !isTouchDevice) {
 }
 
 // ================= Countdown to Feb 26 =================
-// function updateCountdown() {
-//   const now = new Date();
-//   const target = new Date(now.getFullYear(), 1, 26, 0, 0, 0);
-//   if (now > target) target.setFullYear(target.getFullYear() + 1);
+function updateCountdown() {
+  const now = new Date();
+  const target = new Date(now.getFullYear(), 1, 26, 0, 0, 0);
+  if (now > target) target.setFullYear(target.getFullYear() + 1);
 
-//   const diff = target - now;
-//   if (diff <= 0) {
-//     ["cd-days", "cd-hours", "cd-mins", "cd-secs"].forEach((id) => {
-//       document.getElementById(id).textContent = "00";
-//     });
-//     return;
-//   }
+  const diff = target - now;
+  if (diff <= 0) {
+    ["cd-days", "cd-hours", "cd-mins", "cd-secs"].forEach((id) => {
+      document.getElementById(id).textContent = "00";
+    });
+    return;
+  }
 
-//   const pad = (n) => String(n).padStart(2, "0");
-//   document.getElementById("cd-days").textContent = pad(
-//     Math.floor(diff / 86400000),
-//   );
-//   document.getElementById("cd-hours").textContent = pad(
-//     Math.floor((diff % 86400000) / 3600000),
-//   );
-//   document.getElementById("cd-mins").textContent = pad(
-//     Math.floor((diff % 3600000) / 60000),
-//   );
-//   document.getElementById("cd-secs").textContent = pad(
-//     Math.floor((diff % 60000) / 1000),
-//   );
-// }
-// updateCountdown();
-// setInterval(updateCountdown, 1000);
+  const pad = (n) => String(n).padStart(2, "0");
+  document.getElementById("cd-days").textContent = pad(
+    Math.floor(diff / 86400000),
+  );
+  document.getElementById("cd-hours").textContent = pad(
+    Math.floor((diff % 86400000) / 3600000),
+  );
+  document.getElementById("cd-mins").textContent = pad(
+    Math.floor((diff % 3600000) / 60000),
+  );
+  document.getElementById("cd-secs").textContent = pad(
+    Math.floor((diff % 60000) / 1000),
+  );
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
 // ================= Typing Effect =================
 const greetingText =
