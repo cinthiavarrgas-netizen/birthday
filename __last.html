@@ -924,7 +924,7 @@
 
     <!-- HERO -->
     <section class="welcome">
-        <h1>Our Beautiful Moments Together</h1>
+        <h1>Beautiful Moments Of Yours</h1>
         <div class="welcome-divider">
             <div class="divider-line"></div>
             <span class="divider-gem">💎</span>
@@ -934,7 +934,7 @@
     </section>
 
     <!-- MEMORY CARDS -->
-    <p class="section-label reveal">✦ Our Gallery ✦</p>
+    <p class="section-label reveal">✦ Gallery ✦</p>
     <div class="memory-container">
         <div class="memory-card reveal" data-img="IMG_3123.jpg" data-caption="Her Smile Says It All">
             <img src="IMG_3123.jpg" alt="Memory 1" class="memory-img" loading="lazy">
@@ -944,7 +944,7 @@
 
         <div class="memory-card reveal" data-img="IMG_5495.jpg" data-caption="Together Vibes">
             <img src="IMG_5495.jpg" alt="Memory 2" class="memory-img" loading="lazy">
-            <div class="memory-date">Together Vibes</div>
+            <div class="memory-date">Stunning Vibes</div>
             <div class="memory-caption">May your journey ahead be filled with happiness, success, and endless smiles.
                 😊💕</div>
         </div>
@@ -970,72 +970,6 @@
         <button class="surprise-btn" id="surpriseBtn">
             🎁 &nbsp;Open Your Real Surprise
         </button>
-    </div>
-
-    <!-- SECRET PHRASE MODAL -->
-    <div id="phraseModal" style="
-        display:none; position:fixed; inset:0; z-index:3000;
-        background:rgba(0,0,0,0.88); backdrop-filter:blur(6px);
-        align-items:center; justify-content:center; padding:1.5rem;">
-        <div style="
-            background:linear-gradient(145deg,#1a0a04,#2d1208);
-            border:1px solid rgba(212,175,55,0.55);
-            border-radius:24px; padding:2.5rem 2rem; max-width:420px; width:100%;
-            text-align:center; position:relative;
-            box-shadow:0 24px 60px rgba(0,0,0,0.6);">
-
-            <button id="modalClose" style="
-                position:absolute; top:-14px; right:-14px;
-                width:34px; height:34px; border-radius:50%;
-                background:#850B24; border:1px solid rgba(212,175,55,0.5);
-                color:white; font-size:1rem; cursor:pointer;
-                display:flex; align-items:center; justify-content:center;">✕</button>
-
-            <div style="font-size:3rem; margin-bottom:0.8rem;">🔐</div>
-
-            <h3 style="
-                font-family:'Cormorant Garamond',Georgia,serif;
-                font-size:1.7rem; font-weight:700; font-style:italic;
-                background:linear-gradient(90deg,#fff,#F5E08A,#D4AF37,#F5E08A,#fff);
-                background-size:200% auto;
-                -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-                background-clip:text; animation:shimmerMove 4s linear infinite;
-                margin-bottom:0.6rem;">
-                One Last Lock...
-            </h3>
-
-            <p style="
-                color:rgba(245,224,138,0.75); font-family:'Quicksand',sans-serif;
-                font-size:0.92rem; line-height:1.6; margin-bottom:1.5rem;">
-                Type the secret phrase to unlock your surprise 💌
-            </p>
-
-            <input id="phraseInput" type="text" placeholder="Type here..." autocomplete="off" autocorrect="off"
-                spellcheck="false" style="
-                    width:100%; padding:0.85rem 1.2rem;
-                    background:rgba(255,255,255,0.07);
-                    border:1.5px solid rgba(212,175,55,0.35);
-                    border-radius:50px; color:#F5E08A;
-                    font-family:'Quicksand',sans-serif; font-size:1rem;
-                    text-align:center; outline:none; letter-spacing:0.05em;
-                    transition:border-color 0.3s ease;" oninput="this.style.borderColor='rgba(212,175,55,0.5)'">
-
-            <p id="phraseFeedback" style="
-                min-height:1.6rem; font-size:0.88rem; margin-top:0.8rem;
-                font-family:'Quicksand',sans-serif; color:transparent;
-                transition:color 0.3s ease; letter-spacing:0.02em;"></p>
-
-            <button id="phraseSubmit" style="
-                margin-top:0.3rem; padding:0.9rem 2.4rem;
-                background:linear-gradient(135deg,#6a380a,#a05c1a);
-                border:1.5px solid rgba(212,175,55,0.6); border-radius:50px;
-                color:#F5E08A; font-family:'Quicksand',sans-serif;
-                font-weight:700; font-size:1rem; cursor:pointer; letter-spacing:0.05em;
-                box-shadow:0 4px 18px rgba(160,92,26,0.45);
-                transition:transform 0.2s ease, box-shadow 0.2s ease;">
-                Unlock 🔓
-            </button>
-        </div>
     </div>
 
     <!-- RESORT REVEAL -->
@@ -1090,7 +1024,7 @@
             <!-- ── Card Body ── -->
             <div class="resort-icon">🏡</div>
             <p class="resort-eyebrow">Your Birthday Surprise</p>
-            <h2 class="resort-title">River View Cottage</h2>
+            <h2 class="resort-title">Nammadus River View Cottage</h2>
             <p class="resort-subtitle">A Romantic One Night Getaway</p>
 
             <div class="resort-divider">
@@ -1108,7 +1042,7 @@
 
             <div class="resort-details">
                 <div class="detail-pill">🌙 1 Night Stay</div>
-                <div class="detail-pill">🏡 River View Cottage</div>
+                <div class="detail-pill">🏡 Nammadus River View Cottage</div>
                 <div class="detail-pill">🌊 Private River View</div>
                 <div class="detail-pill">🌴 Lush Garden Walks</div>
                 <div class="detail-pill">🍾 Just the Two of Us</div>
@@ -1264,131 +1198,73 @@
         });
 
         // ========================
-        // Secret Phrase Modal
+        // Resort Surprise Reveal
         // ========================
-        const SECRET_PHRASE = 'iloveyou'; // case-insensitive match
-
         const surpriseBtn = document.getElementById('surpriseBtn');
         const resortReveal = document.getElementById('resortReveal');
-        const phraseModal = document.getElementById('phraseModal');
-        const phraseInput = document.getElementById('phraseInput');
-        const phraseSubmit = document.getElementById('phraseSubmit');
-        const phraseFeedback = document.getElementById('phraseFeedback');
-        const modalClose = document.getElementById('modalClose');
         let revealed = false;
 
-        const wrongMessages = [
-            "Hmm, that's not it... try again! 🙈",
-            "Oops! Think a little sweeter 💕",
-            "Not quite! You know this one 😄",
-            "So close! Dig a little deeper 🥺",
-            "One more try... you've got this! 💌",
-        ];
-        let wrongCount = 0;
-
-        // Open modal when surprise button clicked
         surpriseBtn.addEventListener('click', () => {
             if (revealed) return;
-            phraseModal.style.display = 'flex';
-            phraseFeedback.style.color = 'transparent';
-            phraseFeedback.textContent = '';
-            phraseInput.value = '';
-            setTimeout(() => phraseInput.focus(), 100);
-        });
+            revealed = true;
+            surpriseBtn.disabled = true;
 
-        // Close modal
-        function closeModal() {
-            phraseModal.style.display = 'none';
-        }
-        modalClose.addEventListener('click', closeModal);
-        phraseModal.addEventListener('click', (e) => {
-            if (e.target === phraseModal) closeModal();
-        });
+            // Big confetti burst
+            const duration = 4500;
+            const end = Date.now() + duration;
 
-        // Allow Enter key to submit
-        phraseInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') phraseSubmit.click();
-        });
-
-        // Hover effect on unlock button
-        phraseSubmit.addEventListener('mouseenter', () => {
-            phraseSubmit.style.transform = 'translateY(-2px)';
-            phraseSubmit.style.boxShadow = '0 8px 24px rgba(160,92,26,0.65)';
-        });
-        phraseSubmit.addEventListener('mouseleave', () => {
-            phraseSubmit.style.transform = 'translateY(0)';
-            phraseSubmit.style.boxShadow = '0 4px 18px rgba(160,92,26,0.45)';
-        });
-
-        // Check phrase on submit
-        phraseSubmit.addEventListener('click', () => {
-            const typed = phraseInput.value.trim().toLowerCase().replace(/\s/g, '');
-
-            if (typed === SECRET_PHRASE) {
-                // ✅ CORRECT — close modal and reveal
-                closeModal();
-                revealed = true;
-                surpriseBtn.disabled = true;
-
-                // Big confetti burst
-                const duration = 4500;
-                const end = Date.now() + duration;
-                (function frame() {
-                    confetti({
-                        particleCount: 6, angle: 60, spread: 55, origin: { x: 0, y: 0.7 },
-                        colors: ['#D4AF37', '#F5E08A', '#fff', '#C4455F', '#850B24'], ticks: 200
-                    });
-                    confetti({
-                        particleCount: 6, angle: 120, spread: 55, origin: { x: 1, y: 0.7 },
-                        colors: ['#D4AF37', '#F5E08A', '#fff', '#C4455F', '#850B24'], ticks: 200
-                    });
-                    if (Date.now() < end) requestAnimationFrame(frame);
-                })();
+            (function frame() {
                 confetti({
-                    particleCount: 120, spread: 80, origin: { x: 0.5, y: 0.6 },
-                    colors: ['#D4AF37', '#F5E08A', '#fff', '#C4455F', '#850B24', '#FFB6C1'],
-                    startVelocity: 45, ticks: 250, shapes: ['circle', 'square']
+                    particleCount: 6,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.7 },
+                    colors: ['#D4AF37', '#F5E08A', '#fff', '#C4455F', '#850B24'],
+                    ticks: 200
                 });
+                confetti({
+                    particleCount: 6,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.7 },
+                    colors: ['#D4AF37', '#F5E08A', '#fff', '#C4455F', '#850B24'],
+                    ticks: 200
+                });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            })();
 
-                startAutoPlay();
-                resortReveal.style.display = 'block';
-                resortReveal.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                resortReveal.style.opacity = '0';
-                resortReveal.style.transform = 'translateY(40px)';
-                setTimeout(() => {
-                    resortReveal.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
-                    resortReveal.style.opacity = '1';
-                    resortReveal.style.transform = 'translateY(0)';
-                }, 100);
+            // Extra burst from center
+            confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { x: 0.5, y: 0.6 },
+                colors: ['#D4AF37', '#F5E08A', '#fff', '#C4455F', '#850B24', '#FFB6C1'],
+                startVelocity: 45,
+                ticks: 250,
+                shapes: ['circle', 'square']
+            });
 
-                surpriseBtn.textContent = '🎉 Surprise Revealed!';
-                surpriseBtn.style.background = 'linear-gradient(135deg,#2d6a1a,#4a9a28)';
-                surpriseBtn.style.borderColor = 'rgba(100,200,50,0.5)';
-                surpriseBtn.style.animation = 'none';
+            // Start carousel autoplay
+            startAutoPlay();
 
-            } else {
-                // ❌ WRONG — shake input and show cute message
-                phraseInput.style.borderColor = 'rgba(255,80,80,0.7)';
-                phraseFeedback.style.color = 'rgba(255,160,160,0.9)';
-                phraseFeedback.textContent = wrongMessages[wrongCount % wrongMessages.length];
-                wrongCount++;
+            // Reveal the resort card
+            resortReveal.style.display = 'block';
+            resortReveal.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-                // Shake animation
-                let shakes = 0;
-                const shakeInterval = setInterval(() => {
-                    phraseInput.style.transform = shakes % 2 === 0 ? 'translateX(-7px)' : 'translateX(7px)';
-                    shakes++;
-                    if (shakes > 6) {
-                        clearInterval(shakeInterval);
-                        phraseInput.style.transform = 'translateX(0)';
-                    }
-                }, 55);
+            // Animate in
+            resortReveal.style.opacity = '0';
+            resortReveal.style.transform = 'translateY(40px)';
+            setTimeout(() => {
+                resortReveal.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
+                resortReveal.style.opacity = '1';
+                resortReveal.style.transform = 'translateY(0)';
+            }, 100);
 
-                // Reset border after 2s
-                setTimeout(() => {
-                    phraseInput.style.borderColor = 'rgba(212,175,55,0.35)';
-                }, 2000);
-            }
+            // Change button text
+            surpriseBtn.textContent = '🎉 Surprise Revealed!';
+            surpriseBtn.style.background = 'linear-gradient(135deg, #2d6a1a, #4a9a28)';
+            surpriseBtn.style.borderColor = 'rgba(100, 200, 50, 0.5)';
+            surpriseBtn.style.animation = 'none';
         });
     </script>
 </body>
