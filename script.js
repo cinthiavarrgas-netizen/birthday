@@ -70,11 +70,11 @@ function createPetal() {
   p.style.animationDuration = duration + "s";
   p.style.animationDelay = delay + "s";
 
-  petalsContainer.appendChild(p);
-  setTimeout(
-    () => p.remove(),
-    (parseFloat(duration) + parseFloat(delay) + 1) * 1000,
-  );
+//   petalsContainer.appendChild(p);
+//   setTimeout(
+//     () => p.remove(),
+//     (parseFloat(duration) + parseFloat(delay) + 1) * 1000,
+//   );
 }
 
 // Fewer petals on mobile
