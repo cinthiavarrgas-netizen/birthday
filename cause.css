@@ -1,29 +1,49 @@
 :root {
-    --burgundy:   #850B24;
-    --rose:       #C4455F;
-    --gold:       #D4AF37;
+    --burgundy: #850B24;
+    --rose: #C4455F;
+    --gold: #D4AF37;
     --gold-light: #F5E08A;
     --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body:    'Quicksand', sans-serif;
-    --font-fun:     'Comic Neue', cursive;
+    --font-body: 'Quicksand', sans-serif;
+    --font-fun: 'Comic Neue', cursive;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
 
 body {
     min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: 100dvh;
     background: linear-gradient(-45deg, #5a0718, #850B24, #a3163a, #c4455f);
     background-size: 400% 400%;
     animation: gradientBG 18s ease infinite;
     font-family: var(--font-body);
     overflow-x: hidden;
-    padding: 2rem 1.5rem 4rem;
+    padding: 2rem 1.5rem 5rem;
+    /* Safe area for notch + home bar */
+    padding-top: max(2rem, env(safe-area-inset-top));
+    padding-bottom: max(5rem, env(safe-area-inset-bottom));
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
     cursor: none;
 }
 
 @media (hover: none) {
-    body { cursor: auto; }
-    .custom-cursor { display: none; }
+    body {
+        cursor: auto;
+    }
+
+    .custom-cursor {
+        display: none;
+    }
 }
 
 /* ========================
@@ -36,34 +56,54 @@ body {
     z-index: 0;
     overflow: hidden;
 }
+
 .petal {
     position: absolute;
     top: -60px;
     opacity: 0;
     animation: petalFall linear infinite;
 }
+
 @keyframes petalFall {
-    0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
-    10%  { opacity: 0.8; }
-    90%  { opacity: 0.6; }
-    100% { transform: translateY(110vh) rotate(540deg); opacity: 0; }
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(540deg);
+        opacity: 0;
+    }
 }
 
 /* ========================
-   CURSOR
+   CURSOR (desktop only)
 ======================== */
 .custom-cursor {
     width: 34px;
     height: 34px;
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
     will-change: transform;
     filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.7));
 }
-.custom-cursor svg { width: 100%; height: 100%; }
+
+.custom-cursor svg {
+    width: 100%;
+    height: 100%;
+}
 
 /* ========================
    CONTAINER
@@ -74,7 +114,7 @@ body {
     text-align: center;
     position: relative;
     z-index: 5;
-    padding-bottom: 4rem;
+    padding-bottom: 3rem;
 }
 
 /* ========================
@@ -93,11 +133,17 @@ h1 {
     margin-bottom: 1.5rem;
     line-height: 1.15;
     letter-spacing: 0.02em;
+    word-break: break-word;
 }
 
 @keyframes shimmerMove {
-    0%   { background-position: 0% center; }
-    100% { background-position: 200% center; }
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
 }
 
 /* ========================
@@ -126,6 +172,12 @@ h1 {
     transition: transform 0.4s ease;
     filter: drop-shadow(0 0 0px rgba(212, 175, 55, 0));
     cursor: default;
+    /* Minimum tap target */
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .heart-pip.filled {
@@ -134,10 +186,21 @@ h1 {
 }
 
 @keyframes heartPop {
-    0%   { transform: scale(1); }
-    40%  { transform: scale(1.5); }
-    70%  { transform: scale(0.9); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.5);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* ========================
@@ -156,21 +219,29 @@ h1 {
     position: relative;
     overflow: hidden;
     text-align: left;
-    cursor: default;
+    /* FIX: use pointer not default — signals it's interactive on touch too */
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.reason-card:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 16px 40px rgba(133, 11, 36, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+/* Desktop hover only */
+@media (hover: hover) {
+    .reason-card:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 16px 40px rgba(133, 11, 36, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
 }
 
 /* Gold ribbon corner */
 .reason-card::before {
     content: '';
     position: absolute;
-    top: 0; right: 0;
-    width: 0; height: 0;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
     border-style: solid;
     border-width: 0 40px 40px 0;
     border-color: transparent var(--gold) transparent transparent;
@@ -193,6 +264,8 @@ h1 {
 
 /* ========================
    GIF OVERLAY
+   FIX: on touch devices, show on tap (.gif-visible class)
+        instead of :hover which doesn't work on iPhone
 ======================== */
 .gif-overlay {
     position: absolute;
@@ -207,17 +280,47 @@ h1 {
     padding: 1.2rem;
     border-radius: 20px;
 }
+
 .gif-overlay img {
     max-width: 100%;
     max-height: 240px;
     border-radius: 12px;
     object-fit: cover;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
-.reason-card:hover .gif-overlay { opacity: 1; }
+
+/* Desktop: show on hover */
+@media (hover: hover) {
+    .reason-card:hover .gif-overlay {
+        opacity: 1;
+    }
+}
+
+/* Touch: show when .gif-visible class added by JS */
+.reason-card.gif-visible .gif-overlay {
+    opacity: 1;
+}
+
+/* Hint text for touch users */
+.gif-hint {
+    display: none;
+    font-size: 0.68rem;
+    color: rgba(133, 11, 36, 0.5);
+    text-align: right;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+@media (hover: none) {
+    .gif-hint {
+        display: block;
+    }
+}
 
 /* ========================
    SHUFFLE BUTTON
+   FIX: min-height 52px, tap-highlight removed
 ======================== */
 .shuffle-button {
     position: relative;
@@ -225,6 +328,7 @@ h1 {
     border: 1.5px solid rgba(212, 175, 55, 0.5);
     border-radius: 50px;
     padding: 1.1rem 2.8rem;
+    min-height: 52px;
     font-size: 1.15rem;
     color: white;
     margin: 2rem 0 0.8rem;
@@ -236,26 +340,42 @@ h1 {
     transition: box-shadow 0.3s ease;
     will-change: transform;
     letter-spacing: 0.02em;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .shuffle-button .btn-shimmer {
     position: absolute;
-    top: 0; left: -100%;
+    top: 0;
+    left: -100%;
     width: 60%;
     height: 100%;
-    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+    background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.2) 50%, transparent 60%);
     animation: shimmerSweep 3s ease-in-out infinite;
+    pointer-events: none;
 }
 
 @keyframes shimmerSweep {
-    0%        { left: -100%; }
-    40%, 100% { left: 150%; }
+    0% {
+        left: -100%;
+    }
+
+    40%,
+    100% {
+        left: 150%;
+    }
 }
 
-.shuffle-button:hover {
-    box-shadow: 0 8px 28px rgba(133, 11, 36, 0.65);
+@media (hover: hover) {
+    .shuffle-button:hover {
+        box-shadow: 0 8px 28px rgba(133, 11, 36, 0.65);
+    }
 }
-.shuffle-button:active { transform: scale(0.97) !important; }
+
+.shuffle-button:active {
+    transform: scale(0.95) !important;
+    opacity: 0.9;
+}
 
 .shuffle-button.story-mode {
     background: linear-gradient(135deg, #c4455f, var(--burgundy));
@@ -290,9 +410,7 @@ h1 {
     transform: scale(0);
     border-radius: 50%;
     overflow: hidden;
-    box-shadow:
-        0 0 0 4px rgba(212, 175, 55, 0.6),
-        0 0 30px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.6), 0 0 30px rgba(212, 175, 55, 0.3);
 }
 
 .teddy-hug img {
@@ -317,22 +435,88 @@ h1 {
    ANIMATIONS
 ======================== */
 @keyframes gradientBG {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-6px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
 }
 
 /* ========================
    RESPONSIVE
 ======================== */
+@media (max-width: 430px) {
+    body {
+        padding: max(1.5rem, env(safe-area-inset-top)) 1.2rem max(4rem, env(safe-area-inset-bottom));
+    }
+
+    h1 {
+        font-size: 1.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .reason-card {
+        margin: 1rem auto;
+        padding: 1.4rem 1.2rem 1.4rem 1rem;
+    }
+
+    .reason-text {
+        font-size: 0.97rem;
+    }
+
+    .shuffle-button {
+        font-size: 1rem;
+        padding: 0.95rem 1.8rem;
+    }
+
+    .ending-text {
+        font-size: 1.7rem;
+    }
+
+    .progress-label {
+        font-size: 0.65rem;
+    }
+
+    .heart-pip {
+        font-size: 1.5rem;
+        min-width: 40px;
+    }
+}
+
 @media (max-width: 600px) {
-    h1 { font-size: 2rem; }
-    .reason-card { margin: 1rem auto; padding: 1.5rem 1.2rem 1.5rem 1rem; }
-    .reason-text { font-size: 1rem; }
-    .shuffle-button { font-size: 1rem; padding: 0.9rem 2rem; }
+    h1 {
+        font-size: 2rem;
+    }
+
+    .reason-card {
+        margin: 1rem auto;
+        padding: 1.5rem 1.2rem 1.5rem 1rem;
+    }
+
+    .reason-text {
+        font-size: 1rem;
+    }
+
+    .shuffle-button {
+        font-size: 1rem;
+        padding: 0.9rem 2rem;
+    }
 }
